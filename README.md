@@ -7,3 +7,4 @@ trying to decipher this script. [link to challenge](https://twitter.com/zhil_arf
 wordlist source:
 - https://github.com/damzaky/kumpulan-kata-bahasa-indonesia-KBBI
 - https://github.com/perlancar/perl-WordList-ID-KBBI
+- https://github.com/dwyl/english-words
