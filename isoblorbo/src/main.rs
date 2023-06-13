@@ -1,12 +1,33 @@
 use std::collections::HashMap;
 use std::collections::HashSet;
+use std::io::{prelude::*, BufReader};
+use std::path::Path;
+use std::fs::File;
 use std::iter::zip;
+use itertools::Itertools;
 
 fn main() {
     println!(
         "{}",
         is_isomorphic("anacyclus".to_string(), "anaeretic".to_string())
-    )
+    );
+    let words = lines_from_file("../masterwordlist.txt");
+    let ciphertexts = "abcdef gchiejek lmnop".split(' ');
+
+    let isomorphic = words.iter().filter(|x| is_isomorphic(x, x));
+    for line in ciphertexts {
+        println!("{:?}", line);
+    }
+
+    
+}
+
+fn lines_from_file(filename: impl AsRef<Path>) -> Vec<String> {
+    let file = File::open(filename).expect("no such file");
+    let buf = BufReader::new(file);
+    buf.lines()
+        .map(|l| l.expect("Could not parse line"))
+        .collect()
 }
 
 fn is_isomorphic(a: String, b: String) -> bool {
